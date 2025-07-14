@@ -1,0 +1,692 @@
+{
+  "basics": {
+    "name": "Arun Gopi",
+    "headline": "Billing Operations Manager | 16+ Years Experience in IT  | Revenue Cycle Management | DP-600 Certified, Data Engineering and Power BI",
+    "email": "arungopi@live.com",
+    "phone": "+91 623 800 6233",
+    "location": "Kochi, Kerala-686681",
+    "url": {
+      "label": "",
+      "href": ""
+    },
+    "customFields": [
+      {
+        "id": "a6flqikdx3btijowas9zhi8h",
+        "icon": "linkedin-logo",
+        "name": "",
+        "value": "arun-gopi-alungal"
+      },
+      {
+        "id": "nwjxhaqstygmtjiotnxfgkmo",
+        "icon": "github-logo",
+        "name": "",
+        "value": "arun-gopi"
+      }
+    ],
+    "picture": {
+      "url": "https://storage.rxresu.me/cmc3qgpfz0h56ktv7g5kpbdz0/pictures/y4iccews3co7pl1l7kaqube1.jpg",
+      "size": 72,
+      "aspectRatio": 1,
+      "borderRadius": 0,
+      "effects": {
+        "hidden": false,
+        "border": false,
+        "grayscale": false
+      }
+    }
+  },
+  "sections": {
+    "summary": {
+      "name": "Summary",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": true,
+      "id": "summary",
+      "content": ""
+    },
+    "awards": {
+      "name": "Awards",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": true,
+      "id": "awards",
+      "items": []
+    },
+    "certifications": {
+      "name": "Certifications",
+      "columns": 2,
+      "separateLinks": false,
+      "visible": true,
+      "id": "certifications",
+      "items": [
+        {
+          "id": "ttc5hl47l4m2p5juo5xc7gck",
+          "visible": true,
+          "name": "Microsoft Certified: Fabric Analytics Engineer Associate",
+          "issuer": "Microsoft",
+          "date": "Dec 2024 - Dec 2025",
+          "summary": "",
+          "url": {
+            "label": "",
+            "href": "https://learn.microsoft.com/api/credentials/share/en-gb/ArunGopi-8280/63559503B58E2597?sharingId=301E677B679DA440"
+          }
+        },
+        {
+          "id": "fk2zy46w6kjx7957qhku5kxo",
+          "visible": true,
+          "name": "Data Scientist",
+          "issuer": "Simplilearn",
+          "date": "Nov 2023 - ",
+          "summary": "",
+          "url": {
+            "label": "",
+            "href": "https://success.simplilearn.com/a6413e6a-231e-4cfc-a3f0-43a7a20388ea"
+          }
+        },
+        {
+          "id": "lupk61zgd9in64c8pdfkhaka",
+          "visible": true,
+          "name": "Python for Data Science",
+          "issuer": "IBM",
+          "date": "Jan 2023 - ",
+          "summary": "",
+          "url": {
+            "label": "",
+            "href": "https://www.credly.com/badges/58b518a1-e149-49d6-a029-bb73616e51c5/linked_in_profile"
+          }
+        },
+        {
+          "id": "rhhq0ck3epy70dzmwa7j0i7n",
+          "visible": true,
+          "name": "SQL for Healthcare Professionals",
+          "issuer": "LinkedIn",
+          "date": "Mar 2025 - ",
+          "summary": "",
+          "url": {
+            "label": "",
+            "href": "https://www.linkedin.com/learning/certificates/549fde7a536bac9c63959346e2e824ebf54a9d0c1b0b88a07388ac98c80e6c87"
+          }
+        },
+        {
+          "id": "meybfb6tcehdt29aivxtufmp",
+          "visible": true,
+          "name": "Academy Accreditation - Generative AI Fundamentals",
+          "issuer": "Databricks",
+          "date": "Oct 2024 - Oct 2026",
+          "summary": "",
+          "url": {
+            "label": "",
+            "href": "https://credentials.databricks.com/b661cf7f-32a5-411a-a07e-b71a90123e7f"
+          }
+        },
+        {
+          "id": "xhw9j91rzzw86db0k00bx9xs",
+          "visible": true,
+          "name": "Academy Accreditation - Databricks Fundamentals",
+          "issuer": "Databricks",
+          "date": "Oct 2024 - Oct 2025",
+          "summary": "",
+          "url": {
+            "label": "",
+            "href": "https://credentials.databricks.com/991fc371-3d46-46d3-87da-c03340a434e6"
+          }
+        }
+      ]
+    },
+    "education": {
+      "name": "Education",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": true,
+      "id": "education",
+      "items": [
+        {
+          "id": "mojdfh0x56lmacygjtv6ldqc",
+          "visible": true,
+          "institution": "Sunrise University, Alwar",
+          "studyType": "Bachelor of Computer Application",
+          "area": "Computer Apllication",
+          "score": "",
+          "date": "2012-2015",
+          "summary": "",
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        },
+        {
+          "id": "uc2685rnjp94b4sds2dprz3d",
+          "visible": true,
+          "institution": "Govt. Polytechnic College",
+          "studyType": "Engineering Diploma",
+          "area": "Electronics",
+          "score": "",
+          "date": "2003 - 2006",
+          "summary": "<p></p>",
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        },
+        {
+          "id": "gt2o0ikdyu7vl7e6yrvvqo2r",
+          "visible": true,
+          "institution": "S.S.H.S.S. Keerampara",
+          "studyType": "Higher Secondary",
+          "area": "Computer Science",
+          "score": "",
+          "date": "2001 - 2003",
+          "summary": "<p></p>",
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        }
+      ]
+    },
+    "experience": {
+      "name": "Experience",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": true,
+      "id": "experience",
+      "items": [
+        {
+          "id": "qkb9oc7n1r8jbvrak3wnu8g2",
+          "visible": true,
+          "company": "ABAGES Learning Solutions Pvt Ltd",
+          "position": "Manager-Billing Operations",
+          "location": "",
+          "date": "June 2023 - Present",
+          "summary": "<ul><li><p style=\"text-align: justify\">Designed and maintained scalable end to end data pipelines and data warehouse solutions to support comprehensive billing and revenue analytics.</p></li><li><p style=\"text-align: justify\">Developed advanced Power BI dashboards and reports to monitor key performance indicators such as receivables, collections, billing accuracy, and accounts receivable.</p></li><li><p style=\"text-align: justify\">Utilized Excel, Google Sheet, SQL and data engineering best practices to integrate, transform, and optimize large volumes of billing data for actionable insights.</p></li><li><p style=\"text-align: justify\">Automated data processing workflows to improve reporting timeliness and accuracy, enabling senior management to make data-driven decisions.</p></li><li><p style=\"text-align: justify\">Led training sessions on Power BI usage, report creation, and dashboard interpretation, enhancing team capabilities in data analysis and visualization.</p></li><li><p style=\"text-align: justify\">Managed medical billing operations, resolving billing discrepancies, ensuring compliance, and collaborating with coding, finance, and clinical teams.</p></li><li><p style=\"text-align: justify\">Provided coaching on medical billing software and processes, increasing overall team productivity and accuracy.</p></li></ul>",
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        },
+        {
+          "id": "hp0vy0mctnjwj7ll1qsvx1f7",
+          "visible": true,
+          "company": "Tequare Technologies pvt ltd",
+          "position": "Manager-Billing Operations",
+          "location": "Ernakulam, Kerala, India",
+          "date": "Jun 2019 - Jan 2023",
+          "summary": "<ul><li><p>Utilized Excel and Google Sheets to analyze, visualize, and report on weekly and monthly receivables, collections, billing, payments, and accounts receivable, providing actionable insights to senior management.</p></li><li><p>Developed and maintained Power BI dashboards and reports to track key billing metrics and identify trends for continuous improvement.</p></li><li><p>Managed day-to-day medical billing operations across multiple departments, supervising a team of 40 employees and coordinating departmental activities.</p></li><li><p>Identified training needs and delivered coaching on medical billing procedures and EHR software to improve team performance and compliance.</p></li></ul>",
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        },
+        {
+          "id": "ga2y01vhrqx7bcxegm5pwp6v",
+          "visible": true,
+          "company": "Seder Telecom ( Seder Group )",
+          "position": "Administrator",
+          "location": "Riyadh, Saudi Arabia",
+          "date": "Sep 2012 - Feb 2018",
+          "summary": "<ul><li><p>Coordinated office activities and operations to ensure efficiency and compliance with company policies.</p></li><li><p>Supervised administrative staff, delegated responsibilities, and monitored performance.</p></li><li><p>Managed agendas, travel arrangements, and appointments for upper management.</p></li><li><p>Handled phone calls, correspondence (email, letters, packages), and internal communications.</p></li></ul>",
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        },
+        {
+          "id": "r9z5jyovkjhpv8j4zr6p52kp",
+          "visible": true,
+          "company": "Muthoot Finance Ltd",
+          "position": "System Administrator",
+          "location": "New Delhi, Delhi, India",
+          "date": "Jun 2010 - Aug 2012",
+          "summary": "IT and system administration  Installing systems in branch locations Giving proper support for hardware and software  Providing appropriate software training to branch staffs Monitoring staff through Remote Desktop app Implementing new applications in branch offices.",
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        },
+        {
+          "id": "nz14ga1681ngnfwy27na4wh8",
+          "visible": false,
+          "company": "Jeevan Telecasting Corporation",
+          "position": "Media Technician",
+          "location": "Kochi, Kerala, India",
+          "date": "May 2008 - May 2010",
+          "summary": "Television channel technical support  Live broadcast support Setting up live broadcast studios in different places",
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        }
+      ]
+    },
+    "volunteer": {
+      "name": "Volunteering",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": true,
+      "id": "volunteer",
+      "items": []
+    },
+    "interests": {
+      "name": "Interests",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": true,
+      "id": "interests",
+      "items": []
+    },
+    "languages": {
+      "name": "Languages",
+      "columns": 2,
+      "separateLinks": true,
+      "visible": true,
+      "id": "languages",
+      "items": [
+        {
+          "id": "y6rah13qhhwn0heanl1cf7tz",
+          "visible": true,
+          "name": "Malayalam",
+          "description": "",
+          "level": 5
+        },
+        {
+          "id": "ietyvehqkth01q1c2uoiadya",
+          "visible": true,
+          "name": "English",
+          "description": "",
+          "level": 5
+        },
+        {
+          "id": "oiija4lz0vbeesqlvug68v8d",
+          "visible": true,
+          "name": "Hindi",
+          "description": "",
+          "level": 4
+        },
+        {
+          "id": "ahcth3j3wymplhf3rpm2wfwb",
+          "visible": true,
+          "name": "Tamil",
+          "description": "Limited working proficiency",
+          "level": 2
+        }
+      ]
+    },
+    "profiles": {
+      "name": "Profiles",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": true,
+      "id": "profiles",
+      "items": []
+    },
+    "projects": {
+      "name": "Projects",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": true,
+      "id": "projects",
+      "items": [
+        {
+          "id": "ejy75f0qaxq9ammibl7piboh",
+          "visible": true,
+          "name": "Microsoft Fabric End to End Project for Management",
+          "description": "An end-to-end data solution using Microsoft Fabric integrating Excel, Azure SQL, Fabric Data Lake & Data Warehouse, and Google Sheets to deliver a 16-page management reporting environment.",
+          "date": "Aug 2024 - Current",
+          "summary": "<p>Key Points:</p><ul><li><p>Architected data pipelines to ingest and cleanse data from multiple sources into Fabric Data Lake.</p></li><li><p>Developed a centralized data warehouse for unified analytics.</p></li><li><p>Optimized data processing with incremental loads and partitioning.</p></li><li><p>Created advanced Power BI reports leveraging Fabric Data Warehouse.</p></li><li><p>Implemented governance and security policies for data access control.</p></li><li><p>Conducted training and developed documentation to facilitate user adoption.</p></li></ul>",
+          "keywords": [
+            "Microsoft Fabric",
+            "Python",
+            "Data Lake",
+            "Data Warehouse",
+            "Lake Storage"
+          ],
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        },
+        {
+          "id": "rb0jerqyjkqg7g5ljj9ftx53",
+          "visible": true,
+          "name": "Power BI Embedded NextJS App Implementation",
+          "description": "Development and deployment of a Power BI Embedded application using the Next.js framework to enhance data visualization and accessibility through a secure, cloud-hosted environment.",
+          "date": "Nov 2024 - Jan 2025",
+          "summary": "<p>Key Points:</p><ul><li><p>Built the application using the Next.js framework for efficient server-rendered React-based web experience.</p></li><li><p>Integrated Power BI Embedded to embed interactive reports and dashboards directly in the app.</p></li><li><p>Employed Prisma ORM for seamless database management and queries.</p></li><li><p>Used PostgreSQL as the primary database for storing application and user data.</p></li><li><p>Hosted the application on Azure Virtual Machines to ensure reliability and scalability.</p></li><li><p>Implemented social login authentication to provide secure and user-friendly access.</p></li></ul>",
+          "keywords": [
+            "Next JS",
+            "PostgreSQL",
+            "Power BI",
+            "Power BI Embedded",
+            "Azure VPS"
+          ],
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        },
+        {
+          "id": "x6s8t4vgkgrgzhd8h4vp8wd4",
+          "visible": true,
+          "name": "Power BI Dashboard for Management",
+          "description": "A 16-page interactive Power BI dashboard integrating multiple data sources to provide comprehensive management insights.",
+          "date": "",
+          "summary": "<p>Key Points:</p><ul><li><p>Integrated data from Excel, MongoDB, and Google Sheets into a unified reporting platform.</p></li><li><p>Designed interactive visuals and filters for dynamic data exploration.</p></li><li><p>Utilized Power Query for data transformation and cleaning.</p></li><li><p>Scheduled automated data refreshes for real-time updates.</p></li><li><p>Developed KPI metrics and trend analysis reports to support decision-making.</p></li><li><p>Implemented role-based access control to secure sensitive data.</p></li></ul>",
+          "keywords": [
+            "Microsoft Fabric",
+            "Python",
+            "Data Lake",
+            "Data Warehouse",
+            "Lake Storage"
+          ],
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        },
+        {
+          "id": "er5y7z3rh7ts6uz8i3850cx6",
+          "visible": false,
+          "name": "Regional Leadership Dashboards in Power BI",
+          "description": "A set of Power BI dashboards including 5 overview pages and additional pages customized for individual offices, consolidating multiple data sources for regional performance monitoring.",
+          "date": "",
+          "summary": "<p>Key Points:</p><ul><li><p>Delivered regional summaries with drill-down to office-level details.</p></li><li><p>Customized dashboards for each office with localized KPIs.</p></li><li><p>Employed efficient data modeling for Excel and Google Sheets sources.</p></li><li><p>Enabled comparative analysis across regions for operational insights.</p></li><li><p>Created automated alerts and visual cues for critical metrics.</p></li></ul>",
+          "keywords": [
+            "Power BI",
+            "Excel",
+            "Google Sheets",
+            "DAX"
+          ],
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        },
+        {
+          "id": "gm3a7sqrdj8wr4wm8by3g0ba",
+          "visible": false,
+          "name": "Department-wise Dashboards in Power BI",
+          "description": "Department-specific Power BI dashboards with single overview pages and additional pages for offices using multiple data sources, focused on tracking departmental performance.",
+          "date": "",
+          "summary": "<p>Key Points:</p><ul><li><p>Tailored dashboards to department-specific metrics and goals.</p></li><li><p>Provided navigation between consolidated department views and individual office data.</p></li><li><p>Applied advanced DAX calculations to measure productivity and billing accuracy.</p></li><li><p>Incorporated stakeholder feedback for continuous improvement.</p></li></ul>",
+          "keywords": [
+            "Power BI",
+            "Excel",
+            "Google Sheets",
+            "DAX"
+          ],
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        }
+      ]
+    },
+    "publications": {
+      "name": "Publications",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": true,
+      "id": "publications",
+      "items": []
+    },
+    "references": {
+      "name": "References",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": false,
+      "id": "references",
+      "items": [
+        {
+          "id": "wzo6e1p7z37s4r91ni618t3x",
+          "visible": true,
+          "name": "Jayakrishnan",
+          "description": "",
+          "summary": "<p>HR Manager</p><p>Tequare Technologies Pvt Ltd</p>",
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        }
+      ]
+    },
+    "skills": {
+      "name": "Skills",
+      "columns": 2,
+      "separateLinks": false,
+      "visible": true,
+      "id": "skills",
+      "items": [
+        {
+          "id": "wqhgov52wghcyfqs7j60cyl7",
+          "visible": true,
+          "name": "Microsoft Power BI",
+          "description": "",
+          "level": 5,
+          "keywords": [
+            "Visualization",
+            "Modeling",
+            "DAX",
+            "Power Query"
+          ]
+        },
+        {
+          "id": "hkpvyuen9q2r2y2zuzzivrza",
+          "visible": true,
+          "name": "Microsoft Fabric",
+          "description": "",
+          "level": 4,
+          "keywords": [
+            "ETL",
+            "Python",
+            "PySpark",
+            "DataLake",
+            "DaraWarehouse",
+            "OneLake"
+          ]
+        },
+        {
+          "id": "d56ls8oiduvoeq5tpdnffaum",
+          "visible": true,
+          "name": "Data Management",
+          "description": "",
+          "level": 5,
+          "keywords": [
+            "MS Excel",
+            "MS SQL",
+            "MYSQL",
+            "PostgreSQL",
+            "MongoDB",
+            "OneLake"
+          ]
+        },
+        {
+          "id": "u12plbgsjawe3nppph0sg1wy",
+          "visible": true,
+          "name": "ETL Process",
+          "description": "",
+          "level": 4,
+          "keywords": [
+            "Python",
+            "SQL",
+            "Apache Airflow",
+            "Azure Data Factory",
+            "Medallion Architecture",
+            "OneLake"
+          ]
+        },
+        {
+          "id": "u2h0kozgmvwjgdup0xkno4qe",
+          "visible": true,
+          "name": "Python",
+          "description": "",
+          "level": 5,
+          "keywords": [
+            "Python",
+            "Pyspark",
+            "Pandas",
+            "Numpy",
+            "Matplotlib"
+          ]
+        },
+        {
+          "id": "yj8ne3cmjfxoh6lj6y1xp0dw",
+          "visible": true,
+          "name": "Revenue Cycle Management",
+          "description": "",
+          "level": 5,
+          "keywords": [
+            "US healthcare",
+            "HIPAA",
+            "Medical Billing",
+            "Denial Mangement",
+            "Appeal Process"
+          ]
+        },
+        {
+          "id": "ri9lth1tjkthcxyan1262l3m",
+          "visible": true,
+          "name": "Microsoft Dynamics",
+          "description": "",
+          "level": 4,
+          "keywords": [
+            "HR Module",
+            "Payroll & Timesheet"
+          ]
+        },
+        {
+          "id": "dj98adneyw0ltkxyc6ei2a6k",
+          "visible": true,
+          "name": "Web Development",
+          "description": "",
+          "level": 3,
+          "keywords": [
+            "ReactJS",
+            "NextJS",
+            "PostgreSQL",
+            "MongoDB"
+          ]
+        }
+      ]
+    },
+    "custom": {
+      "levqco3bf3vpauyind1nkusi": {
+        "name": "Projects",
+        "columns": 1,
+        "separateLinks": true,
+        "visible": true,
+        "id": "levqco3bf3vpauyind1nkusi",
+        "items": [
+          {
+            "id": "er5y7z3rh7ts6uz8i3850cx6",
+            "visible": true,
+            "name": "Regional Leadership Dashboards in Power BI",
+            "description": "A set of Power BI dashboards including 5 overview pages and additional pages customized for individual offices, consolidating multiple data sources for regional performance monitoring.",
+            "date": "",
+            "location": "",
+            "summary": "<p>Key Points:</p><ul><li><p>Delivered regional summaries with drill-down to office-level details.</p></li><li><p>Customized dashboards for each office with localized KPIs.</p></li><li><p>Employed efficient data modeling for Excel and Google Sheets sources.</p></li><li><p>Enabled comparative analysis across regions for operational insights.</p></li><li><p>Created automated alerts and visual cues for critical metrics.</p></li></ul>",
+            "keywords": [
+              "Power BI",
+              "Excel",
+              "Google Sheets",
+              "DAX"
+            ],
+            "url": {
+              "label": "",
+              "href": ""
+            }
+          },
+          {
+            "id": "gm3a7sqrdj8wr4wm8by3g0ba",
+            "visible": true,
+            "name": "Department-wise Dashboards in Power BI",
+            "description": "Department-specific Power BI dashboards with single overview pages and additional pages for offices using multiple data sources, focused on tracking departmental performance.",
+            "date": "",
+            "location": "",
+            "summary": "<p>Key Points:</p><ul><li><p>Tailored dashboards to department-specific metrics and goals.</p></li><li><p>Provided navigation between consolidated department views and individual office data.</p></li><li><p>Applied advanced DAX calculations to measure productivity and billing accuracy.</p></li><li><p>Incorporated stakeholder feedback for continuous improvement.</p></li></ul>",
+            "keywords": [
+              "Power BI",
+              "Excel",
+              "Google Sheets",
+              "DAX"
+            ],
+            "url": {
+              "label": "",
+              "href": ""
+            }
+          }
+        ]
+      }
+    }
+  },
+  "metadata": {
+    "template": "rhyhorn",
+    "layout": [
+      [
+        [
+          "profiles",
+          "summary",
+          "experience",
+          "references"
+        ],
+        [
+          "interests",
+          "awards",
+          "publications"
+        ]
+      ],
+      [
+        [
+          "certifications",
+          "skills",
+          "education",
+          "languages",
+          "volunteer"
+        ],
+        []
+      ],
+      [
+        [
+          "projects"
+        ],
+        []
+      ],
+      [
+        [
+          "custom.levqco3bf3vpauyind1nkusi"
+        ],
+        []
+      ]
+    ],
+    "css": {
+      "value": "* {\n\toutline: 1px solid #000;\n\toutline-offset: 4px;\n}",
+      "visible": false
+    },
+    "page": {
+      "margin": 32,
+      "format": "a4",
+      "options": {
+        "breakLine": true,
+        "pageNumbers": true
+      }
+    },
+    "theme": {
+      "background": "#ffffff",
+      "text": "#000000",
+      "primary": "#dc2626"
+    },
+    "typography": {
+      "font": {
+        "family": "Cambria",
+        "subset": "latin",
+        "variants": [
+          "regular"
+        ],
+        "size": 14
+      },
+      "lineHeight": 1.5,
+      "hideIcons": false,
+      "underlineLinks": true
+    },
+    "notes": ""
+  }
+}

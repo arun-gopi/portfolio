@@ -1,5 +1,5 @@
 "use client"
-import { assets, workData } from "@/assets/assets";
+import { assets } from "@/assets/assets";
 import Image from "next/image";
 import React from "react";
 import { motion } from "motion/react";
