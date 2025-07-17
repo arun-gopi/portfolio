@@ -8,15 +8,10 @@ export async function POST(req) {
   const { message } = await req.json();
 
   // System guardrail: answer only résumé‑related questions
-  const systemPrompt = `
-    You are a helpful résumé assistant.
-    If the user greets you respond with a friendly greeting. 
-    If the user asks about your capabilities, explain that you can answer questions about the résumé data provided.
-    if user asks for summary, provide a brief summary of the résumé.
-    If the user asks for a specific section, provide details from that section.
-    Answer ONLY questions directly related to the résumé data provided.
-    If the question is unrelated, reply: 
-    "I'm sorry, but I can answer only questions about the résumé."`;
+  const systemPrompt = `You are a helpful assistant. 
+    If the user greets you respond with a friendly greeting.
+    Only answer questions related to the following resume details. 
+    If the question is unrelated to the resume, politely respond that you can only answer questions about the resume."`;
 
   const completion = await openai.chat.completions.create({
     model: "gpt-4o-mini",                 // 4.1 mini‑equivalent
@@ -31,7 +26,11 @@ export async function POST(req) {
       { role: "user", content: message },
     ],
   });
-
-  const answer = completion.choices[0]?.message?.content ?? "";
+  function removeBoldTags(markdownText) {
+  // Replace all occurrences of double asterisks (**) with an empty string
+  return markdownText.replace(/\*\*/g, '');
+  }
+  const answermdx = completion.choices[0]?.message?.content ?? "";
+  const answer = removeBoldTags(answermdx);
   return NextResponse.json({ answer });
 }
