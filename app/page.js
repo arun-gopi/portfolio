@@ -8,32 +8,46 @@ import Navbar from "../components/Navbar";
 import Services from "../components/Services";
 import Work from "../components/Work";
 import ChatUi from '../components/ChatUI';
+import { useClientOnly } from '../hooks/useClientOnly';
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
-  useEffect(() => {
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      setIsDarkMode(true);
-    } else {
-      setIsDarkMode(false);
-    }
-  }, []);
+  const mounted = useClientOnly();
 
   useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.theme = "dark";
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.theme = "";
+    if (!mounted) return;
+    
+    // Check for saved theme or system preference
+    if (typeof window !== 'undefined') {
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        setIsDarkMode(true);
+      } else {
+        setIsDarkMode(false);
+      }
     }
-  }, [isDarkMode]);
+  }, [mounted]);
+
+  useEffect(() => {
+    if (mounted && typeof window !== 'undefined') {
+      if (isDarkMode) {
+        document.documentElement.classList.add("dark");
+        localStorage.theme = "dark";
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.theme = "";
+      }
+    }
+  }, [isDarkMode, mounted]);
 
 
+  // Don't render client-side dependent components until mounted
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <>

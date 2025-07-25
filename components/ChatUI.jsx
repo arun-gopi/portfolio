@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
@@ -6,6 +6,11 @@ export default function ChatWidget() {
   const [history, setHistory] = useState([]);
   const [isBotTyping, setIsBotTyping] = useState(false);
   const [botTypingText, setBotTypingText] = useState("");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const send = async () => {
     if (!query.trim() || isBotTyping) return;
@@ -45,7 +50,10 @@ export default function ChatWidget() {
       strokeLinejoin="round"
       className="text-white block border-gray-200 align-middle"
     >
-      <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z" className="border-gray-200"></path>
+      <path
+        d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"
+        className="border-gray-200"
+      ></path>
     </svg>
   );
 
@@ -82,6 +90,11 @@ export default function ChatWidget() {
     </svg>
   );
 
+  // Don't render until mounted to avoid hydration issues
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <>
       {/* Floating Chat Button */}
@@ -99,7 +112,9 @@ export default function ChatWidget() {
 
       {open && (
         <div
-          style={{ boxShadow: "0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 / 0.05)" }}
+          style={{
+            boxShadow: "0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 / 0.05)",
+          }}
           className="fixed bottom-[calc(4rem+1.5rem)] right-0 mr-4 bg-white p-6 rounded-lg border border-[#e5e7eb]  w-[360px] max-h-[65vh] flex flex-col"
           role="dialog"
           aria-modal="true"
@@ -108,7 +123,10 @@ export default function ChatWidget() {
           {/* Header */}
           <div className="flex flex-col space-y-1.5 pb-6">
             <div className="flex justify-between items-center">
-              <h2 id="chat-heading" className="font-semibold text-lg tracking-tight">
+              <h2
+                id="chat-heading"
+                className="font-semibold text-lg tracking-tight"
+              >
                 Resume Chatbot
               </h2>
               <button
@@ -119,7 +137,9 @@ export default function ChatWidget() {
                 &times;
               </button>
             </div>
-            <p className="text-sm text-[#6b7280] leading-3">Chat with my Resume!</p>
+            <p className="text-sm text-[#6b7280] leading-3">
+              Chat with my Resume!
+            </p>
           </div>
 
           {/* Chat Container with scrollbar */}
@@ -127,23 +147,47 @@ export default function ChatWidget() {
             className="pr-4 flex-1 overflow-y-auto scrollbar scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100"
             style={{ minWidth: "100%" }}
           >
-            {[...history].map((msg, idx) => (
-              <div
-                key={idx}
-                className="flex gap-3 my-4 text-gray-600 text-sm flex-1"
-                style={{ justifyContent: msg.sender === "user" ? "flex-end" : "flex-start" }}
-              >
-                <span className="relative flex shrink-0 overflow-hidden rounded-full w-8 h-8">
-                  <div className="rounded-full bg-gray-100 border p-1">
-                    {msg.sender === "bot" ? <AIIcon /> : <UserIcon />}
+            {[...history].map((msg, idx) => {
+              const isUser = msg.sender === "user";
+
+              return (
+                <div
+                  key={idx}
+                  className={`flex my-4 text-sm max-w-[80%] ${
+                    isUser ? "justify-end ml-auto" : "justify-start mr-auto"
+                  }`}
+                >
+                  <div
+                    className={`flex items-end gap-3 ${
+                      isUser ? "flex-row-reverse" : "flex-row"
+                    }`}
+                    style={{ flex: 1 }}
+                  >
+                    {/* Icon */}
+                    <span className="relative flex shrink-0 overflow-hidden rounded-full w-8 h-8">
+                      <div className="rounded-full border p-1 bg-gray-100">
+                        {isUser ? <UserIcon /> : <AIIcon />}
+                      </div>
+                    </span>
+
+                    {/* Message bubble */}
+                    <p
+                      className={`
+            leading-relaxed whitespace-pre-wrap text-gray-700
+            px-4 py-2 max-w-[300px]
+            ${
+              isUser
+                ? "bg-blue-500 text-white rounded-lg rounded-br-none"
+                : "bg-gray-200 text-gray-900 rounded-lg rounded-bl-none"
+            }
+          `}
+                    >
+                      {msg.text}
+                    </p>
                   </div>
-                </span>
-                <p className="leading-relaxed max-w-[80%] whitespace-pre-wrap text-gray-700 font-bold">
-                  {msg.sender === "bot" ? "AI " : "You "}
-                  <span className="font-normal text-gray-600">{msg.text}</span>
-                </p>
-              </div>
-            ))}
+                </div>
+              );
+            })}
 
             {isBotTyping && (
               <div className="flex gap-3 my-4 text-gray-600 text-sm flex-1">
@@ -153,7 +197,11 @@ export default function ChatWidget() {
                   </div>
                 </span>
                 <p className="leading-relaxed max-w-[80%] whitespace-pre-wrap text-gray-700 font-bold">
-                  AI <span className="font-normal text-gray-600">{botTypingText}<span className="animate-bounce">|</span></span>
+                  AI{" "}
+                  <span className="font-normal text-gray-600">
+                    {botTypingText}
+                    <span className="animate-bounce">|</span>
+                  </span>
                 </p>
               </div>
             )}

@@ -6,23 +6,37 @@ import React, { useEffect, useRef, useState } from 'react'
 const Navbar = ({isDarkMode, setIsDarkMode}) => {
 
     const [isScroll, setIsScroll] = useState(false)
+    const [mounted, setMounted] = useState(false)
     const sideMenuRef = useRef();
 
     const openMenu = ()=>{
-        sideMenuRef.current.style.transform = 'translateX(-16rem)'
+        if (sideMenuRef.current) {
+            sideMenuRef.current.style.transform = 'translateX(-16rem)'
+        }
     }
     const closeMenu = ()=>{
-        sideMenuRef.current.style.transform = 'translateX(16rem)'
+        if (sideMenuRef.current) {
+            sideMenuRef.current.style.transform = 'translateX(16rem)'
+        }
     }
 
     useEffect(()=>{
-        window.addEventListener('scroll', ()=>{
-            if(scrollY > 50){
-                setIsScroll(true)
-            }else{
-                setIsScroll(false)
+        setMounted(true)
+        
+        const handleScroll = () => {
+            if (typeof window !== 'undefined') {
+                if(window.scrollY > 50){
+                    setIsScroll(true)
+                }else{
+                    setIsScroll(false)
+                }
             }
-        })
+        }
+
+        if (typeof window !== 'undefined') {
+            window.addEventListener('scroll', handleScroll)
+            return () => window.removeEventListener('scroll', handleScroll)
+        }
     },[])
 
   return (
