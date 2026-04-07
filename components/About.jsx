@@ -43,7 +43,7 @@ const About = ({isDarkMode }) => {
             transition={{duration: 0.6, delay: 0.8}}
             className='flex-1'>
                 <p className='mb-10 max-w-2xl font-Ovo'
-                >Experienced Data & Analytics professional with 16+ years in IT and healthcare. Specialized in ETL development, Power BI dashboards, and data engineering using tools like SQL, Python, and Microsoft Fabric. Certified DP-600. Skilled in transforming complex data into actionable insights to support strategic business decisions.</p>
+                >Strategic Healthcare Revenue Cycle (RCM) leader and data analytics specialist with 18+ years of experience, including 7+ years supporting US healthcare processes. Experienced in end-to-end RCM, medical billing (UB-04, CMS-1500), coding (CPT, ICD-10, HCPCS), denial management, and AR follow-up. Skilled in Power BI, Microsoft Fabric, SQL, and Python. Proven ability to reduce claim denials by 20% and improve operational efficiency by 25% through analytics and process improvements.</p>
                 <motion.ul
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}

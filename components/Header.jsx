@@ -34,7 +34,7 @@ const Header = () => {
         transition={{ duration: 0.8, delay: 0.5 }}
         className="text-2xl sm:text-3xl lg:text-[44px] font-Ovo"
       >
-        Data Engineer & Power BI Architect Based in India
+        Healthcare RCM Leader & Data Analytics Specialist Based in India
       </motion.h1>
 
       <motion.p
@@ -43,7 +43,7 @@ const Header = () => {
         transition={{ duration: 0.6, delay: 0.7 }}
         className="max-w-2xl mx-auto font-Ovo"
       >
-      I am a data professional with 16+ years of experience in IT and healthcare analytics, delivering end-to-end ETL solutions and interactive Power BI dashboards for organizations.
+      Strategic Healthcare Revenue Cycle (RCM) leader and data analytics specialist with 18+ years of experience, including 7+ years supporting US healthcare processes. Skilled in Power BI, Microsoft Fabric, SQL, and Python.
       </motion.p>
 
       <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
@@ -62,7 +62,7 @@ const Header = () => {
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.2 }}
-          href="/Arun_Gopi_Resume.pdf"
+          href="/Resume_Arun_Gopi.pdf"
           download="Resume.pdf"
           className="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black"
         >

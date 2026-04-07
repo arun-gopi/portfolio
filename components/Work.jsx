@@ -37,8 +37,7 @@ const Work = ({ isDarkMode }) => {
         transition={{ delay: 0.7, duration: 0.5 }}
         className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo"
       >
-        Welcome to my web development portfolio! Explore a collection of
-        projects showcasing my expertise in front-end development.
+        Explore my analytics and RCM projects — from centralized healthcare analytics platforms built on Microsoft Fabric to Power BI dashboards driving denial reduction and revenue insights.
       </motion.p>
       <motion.h2
         initial={{ opacity: 0 }}

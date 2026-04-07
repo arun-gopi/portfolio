@@ -92,23 +92,23 @@ export const assets = {
 
 export const workData = [
     {
-        title: 'Frontend project',
-        description: 'Web Design',
+        title: 'Healthcare RCM Analytics Platform',
+        description: 'Microsoft Fabric',
         bgImage: '/work-1.png',
     },
     {
-        title: 'Geo based app',
-        description: 'Mobile App',
+        title: 'Power BI Healthcare Dashboard',
+        description: 'Denial & Revenue Analytics',
         bgImage: '/work-2.png',
     },
     {
-        title: 'Photography site',
-        description: 'Web Design',
+        title: 'ETL Data Pipeline',
+        description: 'Python & Azure Data Factory',
         bgImage: '/work-3.png',
     },
     {
-        title: 'UI/UX designing',
-        description: 'UI/UX Design',
+        title: 'AR Aging Reduction',
+        description: 'RCM Process Improvement',
         bgImage: '/work-4.png',
     },
 ]
@@ -141,9 +141,9 @@ export const serviceData = [
 ];
 
 export const infoList = [
-    { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Languages', description: 'Python, Power Query, DAX, SQL, JavaScript, React Js, Next Js' },
-    { icon: assets.edu_icon, iconDark: assets.edu_icon_dark, title: 'Education', description: 'Bachelor in Computer Application' },
-    { icon: assets.project_icon, iconDark: assets.project_icon_dark, title: 'Projects', description: 'Built more than 5 projects in Power BI, Microsoft Fabric and React Js/Next Js' }
+    { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Skills', description: 'Power BI, DAX, Microsoft Fabric, SQL, Python, ETL Pipelines, RCM, HIPAA Compliance' },
+    { icon: assets.edu_icon, iconDark: assets.edu_icon_dark, title: 'Education', description: 'Engineering Diploma in Electronics, Govt. Polytechnic College, Kochi (2003–2006)' },
+    { icon: assets.project_icon, iconDark: assets.project_icon_dark, title: 'Certifications', description: 'Microsoft Certified: Fabric Analytics Engineer (DP-600), Python for Data Science – IBM' }
 ];
 
 export const toolsData = [
