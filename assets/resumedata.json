@@ -1,110 +1,163 @@
 {
-  "personal_info": {
+  "basics": {
     "name": "Arun Gopi",
-    "title": "Healthcare RCM Leader & Data Analytics Specialist",
+    "headline": "Healthcare RCM Leader & Data Analytics Specialist",
     "email": "arungopi@live.com",
     "phone": "+91 6238006233",
-    "location": "Kochi, Kerala, India",
-    "linkedin": "linkedin.com/in/arun-gopi-alungal",
-    "website": "arungopi.com",
-    "github": "github.com/arun-gopi"
+    "location": {
+      "city": "Kochi",
+      "state": "Kerala",
+      "country": "India"
+    },
+    "profiles": {
+      "linkedin": "https://www.linkedin.com/in/arun-gopi-alungal",
+      "github": "https://github.com/arun-gopi",
+      "website": "https://arungopi.com"
+    }
   },
-  "summary": "Strategic Healthcare Revenue Cycle (RCM) leader and data analytics specialist with 18+ years of experience, including 7+ years supporting US healthcare processes. Experienced in end-to-end RCM, including medical billing (UB-04, CMS-1500), coding (CPT, ICD-10, HCPCS), denial management using CARC and RARC codes, and AR follow-up. Focused on reducing AR aging, improving collections, and ensuring compliance with CMS guidelines and HIPAA regulations. Skilled in Power BI, Microsoft Fabric, SQL, and Python. Proven ability to reduce claim denials by 20% and improve operational efficiency by 25% through analytics and process improvements.",
+  "summary": [
+    "Strategic Healthcare Revenue Cycle (RCM) leader and data analytics specialist with 18+ years of experience, including 7+ years supporting US healthcare processes.",
+    "Certified AI Medical Coder (CAIMC®) with expertise in professional billing, home health billing, hospice billing, and ABA billing.",
+    "Experienced in medical billing (UB-04, CMS-1500), coding (CPT, ICD-10, HCPCS), denial management (CARC/RARC), and AR follow-up.",
+    "Focused on reducing AR aging, improving collections, and ensuring compliance with CMS and HIPAA regulations.",
+    "Skilled in Power BI, Microsoft Fabric, SQL, and Python for healthcare analytics and reporting."
+  ],
   "skills": [
-    "End-to-End Revenue Cycle Management (RCM)",
+    "Revenue Cycle Management (RCM)",
+    "Professional Billing",
+    "Home Health Billing",
+    "Hospice Billing",
+    "ABA Billing",
     "Medical Billing (UB-04, CMS-1500)",
-    "CPT, ICD-10, HCPCS Coding",
-    "Denial Management & Appeals (CARC/RARC)",
-    "AR Follow-up & Aging Reduction",
-    "Revenue Integrity & Charge Capture Optimization",
-    "CMS Guidelines & Compliance",
-    "HIPAA Compliance & Data Governance",
-    "Healthcare Data Analytics & KPI Reporting",
-    "Power BI, DAX, Microsoft Fabric",
-    "SQL, Python",
+    "CPT Coding",
+    "ICD-10",
+    "HCPCS",
+    "Denial Management (CARC/RARC)",
+    "AR Follow-up",
+    "Revenue Integrity",
+    "CMS Compliance",
+    "HIPAA Compliance",
+    "Healthcare Analytics",
+    "Power BI",
+    "DAX",
+    "Microsoft Fabric",
+    "SQL",
+    "Python",
     "ETL Pipelines",
-    "Process Improvement & QMS (ISO Standards)"
+    "Process Improvement"
   ],
   "experience": [
     {
-      "role": "Manager – Billing Operations & Healthcare Analytics",
+      "title": "Manager – Billing Operations & Healthcare Analytics",
       "company": "ABAGES Learning Solutions Pvt Ltd",
-      "location": "Kochi",
-      "duration": "Jun 2023 - Present",
-      "responsibilities": [
-        "Managed full-cycle US healthcare RCM operations",
-        "Ensured compliance with CMS and HIPAA regulations",
-        "Analyzed claims data to identify denial trends",
-        "Developed 15+ Power BI dashboards for KPI tracking",
-        "Built automated ETL pipelines reducing manual reporting by 40%",
-        "Improved clean claim rate and first-pass resolution",
-        "Collaborated with clinical teams to improve documentation",
-        "Implemented data governance frameworks",
-        "Increased team productivity by 30%",
-        "Improved deadline adherence by 20%",
-        "Reduced training time by 30% through mentorship programs"
+      "location": "Kochi, India",
+      "startDate": "2023-06",
+      "endDate": "2026-03",
+      "highlights": [
+        "Managed full-cycle US healthcare RCM operations including ABA billing.",
+        "Handled charge capture, claims submission, AR follow-up, and denial management.",
+        "Ensured CMS and HIPAA compliance.",
+        "Built 15+ Power BI dashboards for AR, denial rates, and payer performance.",
+        "Developed ETL pipelines using Python and SQL, reducing manual reporting by 40%.",
+        "Improved clean claim rate and first-pass resolution.",
+        "Led process improvements and team productivity initiatives."
       ]
     },
     {
-      "role": "Manager – Revenue Cycle Operations",
+      "title": "Manager – Revenue Cycle Operations",
       "company": "Tequare Technologies Pvt Ltd",
-      "location": "Kochi",
-      "duration": "Jun 2019 - Jan 2023",
-      "responsibilities": [
-        "Oversaw end-to-end US RCM processes",
-        "Managed denial resolution workflows",
-        "Improved collections through analytics",
-        "Built KPI dashboards (AR Days, Denial Rate, Collection Rate)",
-        "Led team of 40+ improving SLA adherence",
-        "Developed escalation protocol improving response time by 40%"
+      "location": "Kochi, India",
+      "startDate": "2019-06",
+      "endDate": "2023-01",
+      "highlights": [
+        "Managed end-to-end RCM including professional, home health, and hospice billing.",
+        "Handled eligibility, charge entry, claims submission, and AR follow-up.",
+        "Led denial management using CARC/RARC codes.",
+        "Improved collections through analytics and root cause analysis.",
+        "Managed a team of 40+ and improved SLA adherence."
       ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Engineering Diploma in Electronics",
+      "institution": "Govt. Polytechnic College",
+      "location": "Kochi, India",
+      "startYear": "2003",
+      "endYear": "2006"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Certified AI Medical Coder (CAIMC®)",
+      "issuer": "Professional Medical Billers Association (USA)",
+      "issueDate": "2025-10",
+      "expiryDate": "2026-10",
+      "credentialId": "20c7c337-02c1-45fb-9249-a70832fa35cc"
     },
+    {
+      "name": "SQL for Healthcare Professionals",
+      "issuer": "LinkedIn",
+      "issueDate": "2025-03"
+    },
+    {
+      "name": "Microsoft Certified: Fabric Analytics Engineer Associate",
+      "issuer": "Microsoft",
+      "issueDate": "2024-12",
+      "expiryDate": "2025-12",
+      "credentialId": "63559503B58E2597"
+    },
+    {
+      "name": "Databricks Generative AI Fundamentals",
+      "issuer": "Databricks",
+      "issueDate": "2024-10",
+      "expiryDate": "2026-10"
+    },
+    {
+      "name": "Databricks Fundamentals",
+      "issuer": "Databricks",
+      "issueDate": "2024-10",
+      "expiryDate": "2025-10"
+    },
+    {
+      "name": "Data Scientist Certification",
+      "issuer": "Simplilearn",
+      "issueDate": "2023-11"
+    },
+    {
+      "name": "Python for Data Science",
+      "issuer": "IBM",
+      "issueDate": "2023-01"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Healthcare RCM Analytics Platform",
+      "description": "Built centralized analytics solution integrating claims, payments, and AR datasets with real-time KPI tracking."
+    },
+    {
+      "name": "Power BI Embedded Healthcare Dashboard",
+      "description": "Developed dashboards for denial analysis, payer performance, and revenue trends."
+    }
+  ],
+  "achievements": [
+    "Recovered $90K in underbilled revenue through analytics-driven claim audits.",
+    "Reduced aged AR by resolving $104K in Medicaid claims.",
+    "Led QMS implementation aligned with ISO standards, improving audit readiness."
+  ],
+  "languages": ["English", "Hindi", "Malayalam", "Tamil"],
+  "previous_experience": [
     {
       "role": "Administrator",
       "company": "Seder Telecom (Seder Group)",
       "location": "Riyadh, Saudi Arabia",
-      "duration": "Sep 2012 - Feb 2018"
+      "duration": "2012-09 to 2018-02"
     },
     {
       "role": "System Administrator",
       "company": "Muthoot Finance Ltd",
       "location": "New Delhi, India",
-      "duration": "Jun 2010 - Aug 2012"
+      "duration": "2010-06 to 2012-08"
     }
-  ],
-  "education": {
-    "degree": "Engineering Diploma in Electronics",
-    "institution": "Govt. Polytechnic College, Kochi",
-    "duration": "2003 - 2006"
-  },
-  "certifications": [
-    "Microsoft Certified: Fabric Analytics Engineer Associate (DP-600)",
-    "Python for Data Science – IBM",
-    "SQL for Healthcare Professionals",
-    "Databricks (Data Engineering & GenAI)"
-  ],
-  "achievements": [
-    "Recovered $90K in underbilled revenue through claim audits",
-    "Resolved $104K in Medicaid claims reducing aged AR",
-    "Reduced claim denials by 20%",
-    "Improved operational efficiency by 25%",
-    "Led QMS implementation aligned with ISO standards"
-  ],
-  "projects": [
-    {
-      "name": "Healthcare RCM Analytics Platform",
-      "technology": "Microsoft Fabric",
-      "description": "Built centralized analytics solution integrating claims, payments, and AR datasets with real-time KPI tracking"
-    },
-    {
-      "name": "Power BI Embedded Healthcare Dashboard",
-      "description": "Developed dashboards for denial analysis, payer performance, and revenue trends"
-    }
-  ],
-  "languages": [
-    "English",
-    "Hindi",
-    "Malayalam",
-    "Tamil"
   ]
 }
