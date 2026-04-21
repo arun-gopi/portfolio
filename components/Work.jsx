@@ -1,95 +1,111 @@
-"use client"
-import { assets } from "@/assets/assets";
-import Image from "next/image";
-import React from "react";
+"use client";
+
 import { motion } from "motion/react";
+import { BriefcaseBusiness, Sparkles, Trophy } from "lucide-react";
 
-const Work = ({ isDarkMode }) => {
+const formatPeriod = (startDate, endDate) => {
+  const format = (value) => {
+    const [year, month] = value.split("-").map(Number);
+    return new Date(year, month - 1).toLocaleDateString("en-US", {
+      month: "short",
+      year: "numeric",
+    });
+  };
+
+  return `${format(startDate)} - ${format(endDate)}`;
+};
+
+const Work = ({ experience, projects, achievements, certifications }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      id="work"
-      className="w-full px-[12%] py-10 scroll-mt-20"
-    >
-      <motion.h4
-        initial={{ y: -20, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
-        className="text-center mb-2 text-lg font-Ovo"
+    <section id="work" className="section-shell scroll-mt-24 py-16 sm:py-24">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6 }}
+        className="mx-auto max-w-7xl"
       >
-        My portfolio
-      </motion.h4>
+        <div className="max-w-3xl">
+          <p className="section-eyebrow">Experience</p>
+          <h2 className="section-title mt-3">Recent leadership work, selected delivery outcomes, and current credentials</h2>
+        </div>
 
-      <motion.h2
-        initial={{ y: -20, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
-        className="text-center text-5xl font-Ovo"
-      >
-        My latest work
-      </motion.h2>
-
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.7, duration: 0.5 }}
-        className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo"
-      >
-        Explore my analytics and RCM projects — from centralized healthcare analytics platforms built on Microsoft Fabric to Power BI dashboards driving denial reduction and revenue insights.
-      </motion.p>
-      <motion.h2
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.7, duration: 0.5 }}
-        className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo"
-      >
-        Coming Soon...
-      </motion.h2>
-      {/* <motion.div
-    initial={{ opacity: 0 }}
-    whileInView={{ opacity: 1 }}
-    transition={{ delay: 0.9, duration: 0.6 }}
-    className='grid grid-cols-auto my-10 gap-5 dark:text-black'>
-        {workData.map((project, index)=>(
-            <motion.div
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-            key={index}
-            className='aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group'
-            style={{backgroundImage: `url(${project.bgImage})`}}>
-                <div className='bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7'>
-                    <div>
-                        <h2 className='font-semibold'>{project.title}</h2>
-                        <p className='text-sm text-gray-700'>{project.description}</p>
+        <div className="mt-10 grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
+          <div className="space-y-5">
+            {experience.map((role) => (
+              <div key={`${role.company}-${role.title}`} className="section-card rounded-[1.75rem] p-6 sm:p-8">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <div className="inline-flex items-center gap-2 rounded-full bg-teal-500/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-teal-800 dark:text-teal-100">
+                      <BriefcaseBusiness size={14} />
+                      {formatPeriod(role.startDate, role.endDate)}
                     </div>
-                    <div className='border rounded-full border-black w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition'>
-                        <Image src={assets.send_icon} alt='send icon' className='w-5'/>
-                    </div>
+                    <h3 className="mt-4 text-2xl font-semibold">{role.title}</h3>
+                    <p className="mt-1 text-sm muted-copy sm:text-base">
+                      {role.company} • {role.location}
+                    </p>
+                  </div>
                 </div>
-                
-            </motion.div>
-        ))}
-    </motion.div> */}
+                <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                  {role.highlights.map((highlight) => (
+                    <div key={highlight} className="rounded-2xl border border-white/10 bg-white/55 p-4 text-sm leading-6 muted-copy dark:bg-slate-900/50">
+                      {highlight}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
 
-      <motion.a
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 1.1, duration: 0.5 }}
-        href=""
-        className="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover duration-500 dark:text-white dark:border-white dark:hover:bg-darkHover"
-      >
-        Show more
-        <Image
-          src={
-            isDarkMode ? assets.right_arrow_bold_dark : assets.right_arrow_bold
-          }
-          alt="Right arrow"
-          className="w-4"
-        />
-      </motion.a>
-    </motion.div>
+          <div className="space-y-5">
+            <div className="section-card rounded-[1.75rem] p-6 sm:p-8">
+              <div className="flex items-center gap-3">
+                <Sparkles size={20} className="text-teal-700 dark:text-teal-300" />
+                <h3 className="text-xl font-semibold">Featured Projects</h3>
+              </div>
+              <div className="mt-5 space-y-4">
+                {projects.map((project) => (
+                  <div key={project.name} className="rounded-2xl border border-white/10 bg-white/55 p-4 dark:bg-slate-900/50">
+                    <p className="font-semibold">{project.name}</p>
+                    <p className="mt-2 text-sm leading-6 muted-copy">{project.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="section-card rounded-[1.75rem] p-6 sm:p-8">
+              <div className="flex items-center gap-3">
+                <Trophy size={20} className="text-teal-700 dark:text-teal-300" />
+                <h3 className="text-xl font-semibold">Impact Highlights</h3>
+              </div>
+              <div className="mt-5 space-y-3">
+                {achievements.map((achievement) => (
+                  <div key={achievement} className="rounded-2xl border border-white/10 bg-white/55 p-4 text-sm leading-6 muted-copy dark:bg-slate-900/50">
+                    {achievement}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="section-card rounded-[1.75rem] p-6 sm:p-8">
+              <h3 className="text-xl font-semibold">Recent Certifications</h3>
+              <div className="mt-5 space-y-4">
+                {certifications.slice(0, 4).map((certification) => (
+                  <div key={`${certification.name}-${certification.issueDate}`} className="rounded-2xl border border-white/10 bg-white/55 p-4 dark:bg-slate-900/50">
+                    <p className="font-semibold">{certification.name}</p>
+                    <p className="text-sm muted-copy">{certification.issuer}</p>
+                    <p className="mt-1 text-sm muted-copy">
+                      Issued {certification.issueDate}
+                      {certification.expiryDate ? ` • Expires ${certification.expiryDate}` : ""}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </section>
   );
 };
 

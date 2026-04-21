@@ -1,31 +1,38 @@
-"use client"
-import { assets } from '@/assets/assets'
-import Image from 'next/image'
-import React from 'react'
+"use client";
 
-const Footer = ({isDarkMode}) => {
+const Footer = ({ basics }) => {
   return (
-    <div className='mt-20'>
-      <div className='text-center'>
-        {/* <Image src={isDarkMode ? assets.logo_dark : assets.logo} alt='' className='w-36 mx-auto mb-2'/> */}
-        <h2 className='text-center text-5xl font-Ovo'>arun<span className='text-red-800 text-6xl'>.</span></h2>
-        <div className='w-max flex items-center gap-2 mx-auto'>
-            <Image src={isDarkMode ? assets.mail_icon_dark : assets.mail_icon} alt='' className='w-6'/>
-            arungopi@live.com
+    <footer className="section-shell pb-8 pt-6 sm:pb-10">
+      <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-slate-950 px-6 py-8 text-white shadow-[0_24px_80px_rgba(15,23,42,0.25)] dark:bg-slate-900 sm:px-8">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p className="font-Ovo text-3xl">{basics.name}</p>
+            <p className="mt-2 max-w-2xl text-sm text-slate-300 sm:text-base">
+              Healthcare RCM leadership, payer operations, analytics delivery, and data-driven process improvement.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3 text-sm">
+            <a href={`mailto:${basics.email}`} className="rounded-full border border-white/15 px-4 py-2 text-slate-200 transition hover:border-teal-300 hover:text-white">
+              {basics.email}
+            </a>
+            <a href={basics.profiles.linkedin} target="_blank" rel="noreferrer" className="rounded-full border border-white/15 px-4 py-2 text-slate-200 transition hover:border-teal-300 hover:text-white">
+              LinkedIn
+            </a>
+            <a href={basics.profiles.github} target="_blank" rel="noreferrer" className="rounded-full border border-white/15 px-4 py-2 text-slate-200 transition hover:border-teal-300 hover:text-white">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+          <p>© 2026 Arun Gopi. All rights reserved.</p>
+          <p>
+            {basics.location.city}, {basics.location.state}, {basics.location.country}
+          </p>
         </div>
       </div>
+    </footer>
+  );
+};
 
-    <div className='text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-6'>
-        <p>© 2025 Arun Gopi. All rights reserved.</p>
-        <ul className='flex items-center gap-10 justify-center mt-4 sm:mt-0'>
-            <li><a target='_blank' href="https://github.com/arun-gopi">GitHub</a></li>
-            <li><a target='_blank' href="https://www.linkedin.com/in/arun-gopi-alungal">LinkedIn</a></li>
-            {/* <li><a target='_blank' href="https://instagram.com/greatstackdev">Twitter</a></li> */}
-        </ul>
-    </div>
-
-    </div>
-  )
-}
-
-export default Footer
+export default Footer;

@@ -1,4 +1,11 @@
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import { MessageSquareText, SendHorizonal, Sparkles, X } from "lucide-react";
+
+const starterPrompts = [
+  "What are Arun's core strengths?",
+  "Summarize his healthcare RCM experience.",
+  "Which analytics tools does he use?",
+];
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
@@ -7,14 +14,21 @@ export default function ChatWidget() {
   const [isBotTyping, setIsBotTyping] = useState(false);
   const [botTypingText, setBotTypingText] = useState("");
   const [mounted, setMounted] = useState(false);
+  const messagesRef = useRef(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const send = async () => {
-    if (!query.trim() || isBotTyping) return;
-    const userMsg = query;
+  useEffect(() => {
+    if (!messagesRef.current) return;
+
+    messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
+  }, [history, botTypingText, open]);
+
+  const send = async (message = query) => {
+    if (!message.trim() || isBotTyping) return;
+    const userMsg = message.trim();
     setQuery("");
     setHistory((prev) => [...prev, { sender: "user", text: userMsg }]);
     setIsBotTyping(true);
@@ -100,60 +114,100 @@ export default function ChatWidget() {
       {/* Floating Chat Button */}
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-4 right-4 inline-flex items-center justify-center text-sm font-medium disabled:pointer-events-none disabled:opacity-50 border rounded-full w-16 h-16 bg-black hover:bg-gray-700 m-0 cursor-pointer border-gray-200 bg-none p-0 normal-case leading-5 hover:text-gray-900"
+        className="fixed bottom-4 right-4 z-40 inline-flex items-center gap-3 rounded-full border border-white/10 bg-slate-950 px-4 py-3 text-sm font-medium text-white shadow-[0_18px_45px_rgba(15,23,42,0.28)] transition hover:bg-teal-700 disabled:pointer-events-none disabled:opacity-50 sm:bottom-6 sm:right-6 dark:bg-white dark:text-slate-950 dark:hover:bg-teal-300"
         type="button"
         aria-haspopup="dialog"
         aria-expanded={open}
         data-state={open ? "open" : "closed"}
         aria-label="Open chat"
       >
-        <BotIconSVG />
+        <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 dark:bg-slate-950/10">
+          <BotIconSVG />
+        </span>
+        <span className="hidden pr-1 text-left sm:block">
+          <span className="block text-xs uppercase tracking-[0.2em] text-white/60 dark:text-slate-500">
+            Ask AI
+          </span>
+          <span className="block text-sm font-semibold">Resume Assistant</span>
+        </span>
       </button>
 
       {open && (
         <div
           style={{
-            boxShadow: "0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 / 0.05)",
+            boxShadow: "0 24px 80px rgba(15, 23, 42, 0.22)",
           }}
-          className="fixed bottom-[calc(4rem+1.5rem)] right-0 mr-4 bg-white p-6 rounded-lg border border-[#e5e7eb]  w-[360px] max-h-[65vh] flex flex-col"
+          className="fixed bottom-20 right-4 z-40 flex max-h-[min(76vh,44rem)] w-[calc(100vw-2rem)] max-w-[25rem] flex-col rounded-[1.9rem] border border-white/10 bg-[rgba(255,255,255,0.96)] p-4 backdrop-blur-xl dark:bg-[rgba(15,23,42,0.98)] sm:bottom-24 sm:right-6 sm:p-5"
           role="dialog"
           aria-modal="true"
           aria-labelledby="chat-heading"
         >
           {/* Header */}
-          <div className="flex flex-col space-y-1.5 pb-6">
-            <div className="flex justify-between items-center">
-              <h2
-                id="chat-heading"
-                className="font-semibold text-lg tracking-tight"
-              >
-                Resume Chatbot
-              </h2>
+          <div className="pb-4">
+            <div className="mb-3 flex items-start justify-between gap-3">
+              <div className="flex items-start gap-3">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-500/12 text-teal-700 dark:text-teal-300">
+                  <MessageSquareText size={20} />
+                </span>
+                <div>
+                  <div className="inline-flex items-center gap-2 rounded-full border border-teal-500/15 bg-teal-500/10 px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-teal-700 dark:text-teal-200">
+                    <Sparkles size={12} />
+                    Resume assistant
+                  </div>
+                  <h2
+                    id="chat-heading"
+                    className="mt-2 text-lg font-semibold tracking-tight text-slate-900 dark:text-white"
+                  >
+                    Ask about Arun Gopi
+                  </h2>
+                </div>
+              </div>
               <button
                 onClick={() => setOpen(false)}
                 aria-label="Close chat"
-                className="text-gray-500 hover:text-gray-700 font-bold text-xl cursor-pointer"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-slate-500 transition hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
               >
-                &times;
+                <X size={18} />
               </button>
             </div>
-            <p className="text-sm text-[#6b7280] leading-3">
-              Chat with my Resume!
+            <p className="text-sm leading-6 text-slate-500 dark:text-slate-400">
+              Ask about experience, certifications, tools, healthcare RCM background, or analytics work.
             </p>
           </div>
 
           {/* Chat Container with scrollbar */}
           <div
-            className="pr-4 flex-1 overflow-y-auto scrollbar scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100"
+            ref={messagesRef}
+            className="scrollbar-hidden flex-1 overflow-y-auto pr-1"
             style={{ minWidth: "100%" }}
           >
+            {history.length === 0 && !isBotTyping && (
+              <div className="mb-5 rounded-[1.5rem] border border-white/10 bg-white/70 p-4 dark:bg-slate-900/60">
+                <p className="text-sm font-medium text-slate-900 dark:text-white">
+                  Quick starters
+                </p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {starterPrompts.map((prompt) => (
+                    <button
+                      key={prompt}
+                      type="button"
+                      onClick={() => send(prompt)}
+                      className="rounded-full border border-white/10 bg-slate-50 px-3 py-2 text-left text-xs font-medium text-slate-700 transition hover:border-teal-500/30 hover:text-teal-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:text-teal-300"
+                    >
+                      {prompt}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {[...history].map((msg, idx) => {
               const isUser = msg.sender === "user";
 
               return (
                 <div
                   key={idx}
-                  className={`flex my-4 text-sm max-w-[80%] ${
+                  className={`my-4 flex max-w-[88%] text-sm ${
                     isUser ? "justify-end ml-auto" : "justify-start mr-auto"
                   }`}
                 >
@@ -164,8 +218,8 @@ export default function ChatWidget() {
                     style={{ flex: 1 }}
                   >
                     {/* Icon */}
-                    <span className="relative flex shrink-0 overflow-hidden rounded-full w-8 h-8">
-                      <div className="rounded-full border p-1 bg-gray-100">
+                    <span className="relative flex h-8 w-8 shrink-0 overflow-hidden rounded-full">
+                      <div className="rounded-full border border-white/10 bg-slate-100 p-1 dark:bg-slate-800">
                         {isUser ? <UserIcon /> : <AIIcon />}
                       </div>
                     </span>
@@ -173,12 +227,11 @@ export default function ChatWidget() {
                     {/* Message bubble */}
                     <p
                       className={`
-            leading-relaxed whitespace-pre-wrap text-gray-700
-            px-4 py-2 max-w-[300px]
+            max-w-[250px] px-4 py-3 leading-relaxed whitespace-pre-wrap shadow-sm sm:max-w-[290px]
             ${
               isUser
-                ? "bg-blue-500 text-white rounded-lg rounded-br-none"
-                : "bg-gray-200 text-gray-900 rounded-lg rounded-bl-none"
+                ? "rounded-2xl rounded-br-md bg-teal-600 text-white dark:bg-teal-500 dark:text-slate-950"
+                : "rounded-2xl rounded-bl-md bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-slate-100"
             }
           `}
                     >
@@ -190,15 +243,15 @@ export default function ChatWidget() {
             })}
 
             {isBotTyping && (
-              <div className="flex gap-3 my-4 text-gray-600 text-sm flex-1">
-                <span className="relative flex shrink-0 overflow-hidden rounded-full w-8 h-8">
-                  <div className="rounded-full bg-gray-100 border p-1">
+              <div className="my-4 flex flex-1 gap-3 text-sm text-slate-600 dark:text-slate-300">
+                <span className="relative flex h-8 w-8 shrink-0 overflow-hidden rounded-full">
+                  <div className="rounded-full border border-white/10 bg-slate-100 p-1 dark:bg-slate-800">
                     <AIIcon />
                   </div>
                 </span>
-                <p className="leading-relaxed max-w-[80%] whitespace-pre-wrap text-gray-700 font-bold">
-                  AI{" "}
-                  <span className="font-normal text-gray-600">
+                <p className="max-w-[80%] whitespace-pre-wrap rounded-2xl rounded-bl-md bg-slate-100 px-4 py-3 font-bold leading-relaxed text-slate-800 dark:bg-slate-800 dark:text-slate-100">
+                  Assistant{" "}
+                  <span className="font-normal text-slate-500 dark:text-slate-400">
                     {botTypingText}
                     <span className="animate-bounce">|</span>
                   </span>
@@ -208,18 +261,18 @@ export default function ChatWidget() {
           </div>
 
           {/* Input box */}
-          <div className="flex items-center pt-0">
+          <div className="mt-4 border-t border-white/10 pt-4">
             <form
               onSubmit={(e) => {
                 e.preventDefault();
                 send();
               }}
-              className="flex items-center justify-center w-full space-x-2"
+              className="flex w-full items-center justify-center gap-2"
             >
               <input
                 type="text"
-                className="flex h-10 w-full rounded-md border border-[#e5e7eb] px-3 py-2 text-sm placeholder-[#6b7280] focus:outline-none focus:ring-2 focus:ring-[#9ca3af] disabled:cursor-not-allowed disabled:opacity-50 text-[#030712] focus-visible:ring-offset-2"
-                placeholder="Type your Questions here..."
+                className="flex h-11 w-full rounded-full border border-white/10 bg-white/80 px-4 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-slate-900/70 dark:text-white dark:placeholder:text-slate-500"
+                placeholder="Ask about experience, tools, or achievements"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 disabled={isBotTyping}
@@ -227,13 +280,16 @@ export default function ChatWidget() {
               />
               <button
                 type="submit"
-                className="inline-flex items-center justify-center rounded-md text-sm font-medium text-[#f9fafb] disabled:pointer-events-none disabled:opacity-50 bg-black hover:bg-[#111827E6] h-10 px-4 py-2"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-slate-950 text-white transition hover:bg-teal-700 disabled:pointer-events-none disabled:opacity-50 dark:bg-white dark:text-slate-950 dark:hover:bg-teal-300"
                 disabled={isBotTyping}
                 aria-label="Send message"
               >
-                Send
+                <SendHorizonal size={16} />
               </button>
             </form>
+            <p className="mt-3 text-xs leading-5 text-slate-400 dark:text-slate-500">
+              The assistant answers only from resume-related information.
+            </p>
           </div>
 
           <style jsx>{`

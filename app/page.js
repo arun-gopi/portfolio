@@ -9,6 +9,7 @@ import Services from "../components/Services";
 import Work from "../components/Work";
 import ChatUi from '../components/ChatUI';
 import { useClientOnly } from '../hooks/useClientOnly';
+import resumeData from "../assets/resumedata.json";
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -51,26 +52,37 @@ export default function Home() {
 
   return (
     <>
-      <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
-      <Header isDarkMode={isDarkMode}/>
-      <About isDarkMode={isDarkMode}/>
-      <Services isDarkMode={isDarkMode} />
-      <Work isDarkMode={isDarkMode} />
-      <Contact isDarkMode={isDarkMode} />
-      <Footer isDarkMode={isDarkMode} />
+      <Navbar
+        basics={resumeData.basics}
+        isDarkMode={isDarkMode}
+        setIsDarkMode={setIsDarkMode}
+      />
+      <main>
+        <Header
+          basics={resumeData.basics}
+          summary={resumeData.summary}
+          experience={resumeData.experience}
+          achievements={resumeData.achievements}
+        />
+        <About
+          basics={resumeData.basics}
+          summary={resumeData.summary}
+          education={resumeData.education}
+          certifications={resumeData.certifications}
+          languages={resumeData.languages}
+          previousExperience={resumeData.previous_experience}
+        />
+        <Services skills={resumeData.skills} />
+        <Work
+          experience={resumeData.experience}
+          projects={resumeData.projects}
+          achievements={resumeData.achievements}
+          certifications={resumeData.certifications}
+        />
+        <Contact basics={resumeData.basics} />
+      </main>
+      <Footer basics={resumeData.basics} />
       <ChatUi />
     </>
   );
-
-  // return (
-  //   <>
-  //     <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
-  //     <Header isDarkMode={isDarkMode} basics={resumeData.basics} />
-  //     <About isDarkMode={isDarkMode} summary={sections.summary} />
-  //     <Services isDarkMode={isDarkMode} skills={sections.skills} />
-  //     <Work isDarkMode={isDarkMode} experience={sections.experience} />
-  //     <Contact isDarkMode={isDarkMode} basics={resumeData.basics} />
-  //     <Footer isDarkMode={isDarkMode} basics={resumeData.basics} />
-  //   </>
-  // );
 }

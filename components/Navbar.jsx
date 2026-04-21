@@ -1,98 +1,163 @@
-"use client"
-import { assets } from '@/assets/assets'
-import Image from 'next/image'
-import React, { useEffect, useRef, useState } from 'react'
+"use client";
 
-const Navbar = ({isDarkMode, setIsDarkMode}) => {
+import { useEffect, useState } from "react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 
-    const [isScroll, setIsScroll] = useState(false)
-    const [mounted, setMounted] = useState(false)
-    const sideMenuRef = useRef();
+const navItems = [
+    { label: "Overview", href: "#top" },
+    { label: "Profile", href: "#about" },
+    { label: "Expertise", href: "#services" },
+    { label: "Experience", href: "#work" },
+    { label: "Contact", href: "#contact" },
+];
 
-    const openMenu = ()=>{
-        if (sideMenuRef.current) {
-            sideMenuRef.current.style.transform = 'translateX(-16rem)'
-        }
-    }
-    const closeMenu = ()=>{
-        if (sideMenuRef.current) {
-            sideMenuRef.current.style.transform = 'translateX(16rem)'
-        }
-    }
+const Navbar = ({ basics, isDarkMode, setIsDarkMode }) => {
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    useEffect(()=>{
-        setMounted(true)
-        
-        const handleScroll = () => {
-            if (typeof window !== 'undefined') {
-                if(window.scrollY > 50){
-                    setIsScroll(true)
-                }else{
-                    setIsScroll(false)
-                }
-            }
+    useEffect(() => {
+        const handleScroll = () => setIsScrolled(window.scrollY > 24);
+
+        handleScroll();
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
         }
 
-        if (typeof window !== 'undefined') {
-            window.addEventListener('scroll', handleScroll)
-            return () => window.removeEventListener('scroll', handleScroll)
-        }
-    },[])
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [isMenuOpen]);
 
-  return (
-    <>
-    <div className='fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:hidden'>
-       <Image src={assets.header_bg_color} alt='' className='w-full' />
-    </div>
+    return (
+        <>
+            <nav
+                className={`fixed inset-x-0 top-0 z-50 section-shell transition-all duration-300 ${
+                    isScrolled ? "pt-3" : "pt-5"
+                }`}
+            >
+                <div
+                    className={`mx-auto flex max-w-7xl items-center justify-between rounded-full px-4 py-3 sm:px-6 ${
+                        isScrolled ? "section-card shadow-[0_20px_60px_rgba(15,23,42,0.12)]" : "bg-transparent"
+                    }`}
+                >
+                    <a href="#top" className="flex items-center gap-3">
+                        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-teal-600 text-sm font-semibold uppercase tracking-[0.25em] text-white shadow-lg shadow-teal-500/20 dark:bg-teal-500 dark:text-slate-950">
+                            AG
+                        </span>
+                        <div>
+                            <p className="text-sm font-semibold text-slate-900 dark:text-white">
+                                {basics.name}
+                            </p>
+                            <p className="text-xs muted-copy">Healthcare RCM & Analytics</p>
+                        </div>
+                    </a>
 
-      <nav className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 ${isScroll ? "bg-white bg-opacity-50 backdrop-blur-lg shadow-sm dark:bg-darkTheme dark:shadow-white/20" : ""}`}>
-        <a href="#top">
-            {/* <Image src={isDarkMode ? assets.logo_dark : assets.logo} alt='' className='w-28 alt="" cursor-pointer mr-14'/> */}
-            <h2 className='text-center text-5xl font-Ovo'>arun<span className='text-red-800 text-6xl'>.</span></h2>
-        </a>
+                    <ul className="hidden items-center gap-6 lg:flex">
+                        {navItems.map((item) => (
+                            <li key={item.href}>
+                                <a
+                                    href={item.href}
+                                    className="text-sm font-medium text-slate-700 transition hover:text-teal-700 dark:text-slate-200 dark:hover:text-teal-300"
+                                >
+                                    {item.label}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
 
-        <ul className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 ${isScroll ? "" : "bg-white shadow-sm bg-opacity-50 dark:border dark:border-white/50 dark:bg-transparent"} `}>
-            <li><a className='font-Ovo' href="#top">Home</a></li>
-            <li><a className='font-Ovo' href="#about">About me</a></li>
-            <li><a className='font-Ovo' href="#services">Services</a></li>
-            <li><a className='font-Ovo' href="#work">My Work</a></li>
-            <li><a className='font-Ovo' href="#contact">Contact me</a></li>
-            <li><a className='font-Ovo' onClick={closeMenu} target="_blank" href="https://www.linkedin.com/in/arun-gopi-alungal">LinkedIn</a></li>
-        </ul>
+                    <div className="flex items-center gap-2 sm:gap-3">
+                        <button
+                            type="button"
+                            onClick={() => setIsDarkMode((prev) => !prev)}
+                            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/70 text-slate-900 transition hover:scale-[1.02] dark:bg-slate-900/60 dark:text-white"
+                            aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+                        >
+                            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+                        </button>
+                        <a
+                            href={basics.profiles.linkedin}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="hidden rounded-full bg-slate-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-teal-700 dark:bg-white dark:text-slate-950 dark:hover:bg-teal-300 sm:inline-flex"
+                        >
+                            LinkedIn
+                        </a>
+                        <button
+                            type="button"
+                            onClick={() => setIsMenuOpen(true)}
+                            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/70 text-slate-900 lg:hidden dark:bg-slate-900/60 dark:text-white"
+                            aria-label="Open navigation menu"
+                        >
+                            <Menu size={20} />
+                        </button>
+                    </div>
+                </div>
+            </nav>
 
-        <div className='flex items-center gap-4'>
+            <div
+                className={`fixed inset-0 z-[60] bg-slate-950/55 backdrop-blur-sm transition ${
+                    isMenuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+            />
 
-            <button onClick={()=> setIsDarkMode(prev => !prev)}>
-                <Image src={isDarkMode ? assets.sun_icon : assets.moon_icon} alt='' className='w-6' />
-            </button>
+            <aside
+                className={`fixed right-0 top-0 z-[70] flex h-full w-[84%] max-w-sm flex-col section-card p-6 transition-transform duration-300 lg:hidden ${
+                    isMenuOpen ? "translate-x-0" : "translate-x-full"
+                }`}
+            >
+                <div className="mb-10 flex items-center justify-between">
+                    <div>
+                        <p className="text-lg font-semibold">{basics.name}</p>
+                        <p className="text-sm muted-copy">{basics.headline}</p>
+                    </div>
+                    <button
+                        type="button"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10"
+                        aria-label="Close navigation menu"
+                    >
+                        <X size={18} />
+                    </button>
+                </div>
 
-            <a href="#contact" className='hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-4 font-Ovo dark:border-white/50'>Contact 
-            <Image src={isDarkMode ? assets.arrow_icon_dark : assets.arrow_icon} alt="" className='w-3'/></a>
+                <div className="flex flex-1 flex-col gap-4">
+                    {navItems.map((item) => (
+                        <a
+                            key={item.href}
+                            href={item.href}
+                            onClick={() => setIsMenuOpen(false)}
+                            className="rounded-2xl border border-white/10 px-4 py-3 text-base font-medium"
+                        >
+                            {item.label}
+                        </a>
+                    ))}
+                </div>
 
-            <button className='block md:hidden ml-3' onClick={openMenu}>
-            <Image src={isDarkMode ? assets.menu_white : assets.menu_black} alt='' className='w-6' />
-            </button>
-        </div>
+                <div className="space-y-3 border-t border-white/10 pt-6">
+                    <a href={`mailto:${basics.email}`} className="block text-sm muted-copy">
+                        {basics.email}
+                    </a>
+                    <a
+                        href={basics.profiles.linkedin}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex rounded-full bg-slate-950 px-5 py-3 text-sm font-medium text-white dark:bg-white dark:text-slate-950"
+                    >
+                        Visit LinkedIn
+                    </a>
+                </div>
+            </aside>
+        </>
+    );
+};
 
-        {/* -- ----- mobile menu ------  -- */}
-
-        <ul ref={sideMenuRef} className='flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 dark:bg-darkHover dark:text-white'>
-
-            <div className='absolute right-6 top-6' onClick={closeMenu}>
-                <Image src={isDarkMode ? assets.close_white : assets.close_black} alt='' className='w-5 cursor-pointer' />
-            </div>
-
-            <li><a className='font-Ovo' onClick={closeMenu} href="#top">Home</a></li>
-            <li><a className='font-Ovo' onClick={closeMenu} href="#about">About me</a></li>
-            <li><a className='font-Ovo' onClick={closeMenu} href="#services">Services</a></li>
-            <li><a className='font-Ovo' onClick={closeMenu} href="#work">My Work</a></li>
-            <li><a className='font-Ovo' onClick={closeMenu} href="#contact">Contact me</a></li>
-            <li><a className='font-Ovo' onClick={closeMenu} target="_blank" href="https://www.linkedin.com/in/arun-gopi-alungal">LinkedIn</a></li>
-        </ul>
-
-      </nav>
-    </>
-  )
-}
-
-export default Navbar
+export default Navbar;

@@ -12,15 +12,16 @@ const ovo = Ovo({
 
 
 export const metadata = {
-  title: "Portfolio - Arun Gopi",
-  description: "",
+  title: "Arun Gopi | Healthcare RCM & Analytics Leader",
+  description:
+    "Portfolio of Arun Gopi, a healthcare revenue cycle management leader and analytics specialist focused on RCM operations, Power BI, Microsoft Fabric, SQL, and Python.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${outfit.className} ${ovo.className} antialiased leading-8 overflow-x-hidden dark:bg-darkTheme dark:text-white`}
+        className={`${outfit.className} ${ovo.className} antialiased leading-7 overflow-x-hidden text-slate-900 dark:bg-darkTheme dark:text-white`}
       >
         {children}
       </body>

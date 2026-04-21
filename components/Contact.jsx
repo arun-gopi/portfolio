@@ -1,10 +1,10 @@
 "use client";
-import { assets } from "@/assets/assets";
-import Image from "next/image";
-import React, { useState, useEffect } from "react";
-import { motion } from "motion/react";
 
-const Contact = () => {
+import { useEffect, useState } from "react";
+import { motion } from "motion/react";
+import { ArrowRight, Github, Globe, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+
+const Contact = ({ basics }) => {
   const [result, setResult] = useState("");
   const [mounted, setMounted] = useState(false);
 
@@ -37,95 +37,109 @@ const Contact = () => {
   }, []);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={mounted ? { opacity: 1 } : {}}
-      transition={{ duration: 1 }}
-      id="contact"
-      className='w-full px-[12%] py-10 scroll-mt-20 bg-[url("/footer-bg-color.png")] bg-no-repeat bg-center bg-[length:90%_auto] dark:bg-none'
-    >
-      <motion.h4
-        initial={{ y: -20, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
-        className="text-center mb-2 text-lg font-Ovo"
+    <section id="contact" className="section-shell scroll-mt-24 py-16 sm:py-24">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={mounted ? { opacity: 1, y: 0 } : {}}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6 }}
+        className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.82fr_1.18fr]"
       >
-        Connect with me
-      </motion.h4>
+        <div className="section-card rounded-[2rem] p-6 sm:p-8">
+          <p className="section-eyebrow">Contact</p>
+          <h2 className="section-title mt-3">Discuss healthcare operations, analytics delivery, or leadership opportunities</h2>
+          <p className="mt-5 text-base muted-copy sm:text-lg">
+            Reach out for RCM operations leadership, analytics transformation work, dashboard delivery, or healthcare data projects.
+          </p>
 
-      <motion.h2
-        initial={{ y: -20, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
-        className="text-center text-5xl font-Ovo"
-      >
-        Get in touch
-      </motion.h2>
+          <div className="mt-8 space-y-4">
+            <a href={`mailto:${basics.email}`} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/55 p-4 dark:bg-slate-900/50">
+              <Mail size={18} className="text-teal-700 dark:text-teal-300" />
+              <div>
+                <p className="font-medium">Email</p>
+                <p className="text-sm muted-copy">{basics.email}</p>
+              </div>
+            </a>
+            <a href={`tel:${basics.phone.replace(/\s+/g, "")}`} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/55 p-4 dark:bg-slate-900/50">
+              <Phone size={18} className="text-teal-700 dark:text-teal-300" />
+              <div>
+                <p className="font-medium">Phone</p>
+                <p className="text-sm muted-copy">{basics.phone}</p>
+              </div>
+            </a>
+            <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/55 p-4 dark:bg-slate-900/50">
+              <MapPin size={18} className="text-teal-700 dark:text-teal-300" />
+              <div>
+                <p className="font-medium">Location</p>
+                <p className="text-sm muted-copy">
+                  {basics.location.city}, {basics.location.state}, {basics.location.country}
+                </p>
+              </div>
+            </div>
+          </div>
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.7, duration: 0.5 }}
-        className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo"
-      >
-        I'd love to hear from you! If you have any questions, comments, or
-        feedback, please use the form below.
-      </motion.p>
-
-      <motion.form
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.9, duration: 0.5 }}
-        onSubmit={onSubmit}
-        className="max-w-2xl mx-auto"
-      >
-        <div className="grid grid-cols-auto gap-6 mt-10 mb-8">
-          <motion.input
-            initial={{ x: -50, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ delay: 1.1, duration: 0.6 }}
-            type="text"
-            placeholder="Enter your name"
-            required
-            className="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90"
-            name="name"
-          />
-
-          <motion.input
-            initial={{ x: 50, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ delay: 1.2, duration: 0.6 }}
-            type="email"
-            placeholder="Enter your email"
-            required
-            className="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90"
-            name="email"
-          />
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href={basics.profiles.linkedin} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm font-medium">
+              <Linkedin size={16} />
+              LinkedIn
+            </a>
+            <a href={basics.profiles.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm font-medium">
+              <Github size={16} />
+              GitHub
+            </a>
+            <a href={basics.profiles.website} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm font-medium">
+              <Globe size={16} />
+              Website
+            </a>
+          </div>
         </div>
-        <motion.textarea
-          initial={{ y: 100, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1.3, duration: 0.6 }}
-          rows="6"
-          placeholder="Enter your message"
-          required
-          className="w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6 dark:bg-darkHover/30 dark:border-white/90"
-          name="message"
-        ></motion.textarea>
 
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
-          type="submit"
-          className="py-3 px-8 w-max flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500 dark:bg-transparent dark:border-[0.5px] dark:hover:bg-darkHover"
+        <motion.form
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          onSubmit={onSubmit}
+          className="section-card rounded-[2rem] p-6 sm:p-8"
         >
-          Submit now{" "}
-          <Image src={assets.right_arrow_white} alt="" className="w-4" />
-        </motion.button>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <input
+              type="text"
+              placeholder="Your name"
+              required
+              className="rounded-2xl border border-white/10 bg-white/70 px-4 py-3 outline-none transition focus:border-teal-500 dark:bg-slate-900/60"
+              name="name"
+            />
+            <input
+              type="email"
+              placeholder="Your email"
+              required
+              className="rounded-2xl border border-white/10 bg-white/70 px-4 py-3 outline-none transition focus:border-teal-500 dark:bg-slate-900/60"
+              name="email"
+            />
+          </div>
 
-        <p className="mt-4">{result}</p>
-      </motion.form>
-    </motion.div>
+          <textarea
+            rows="7"
+            placeholder="Tell me about the role, project, or problem you want to discuss"
+            required
+            className="mt-4 w-full rounded-[1.5rem] border border-white/10 bg-white/70 p-4 outline-none transition focus:border-teal-500 dark:bg-slate-900/60"
+            name="message"
+          />
+
+          <div className="mt-5 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+            <button
+              type="submit"
+              className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-teal-700 dark:bg-white dark:text-slate-950 dark:hover:bg-teal-300"
+            >
+              Send message
+              <ArrowRight size={16} />
+            </button>
+            <p className="text-sm muted-copy">{result}</p>
+          </div>
+        </motion.form>
+      </motion.div>
+    </section>
   );
 };
 

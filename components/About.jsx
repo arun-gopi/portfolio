@@ -1,90 +1,115 @@
-"use client"
-import { assets, infoList, toolsData } from '@/assets/assets'
-import Image from 'next/image'
-import React from 'react'
-import { motion } from "motion/react"
+"use client";
 
-const About = ({isDarkMode }) => {
-  return (
-    <motion.div id='about' className='w-full px-[12%] py-10 scroll-mt-20'
-    initial={{opacity: 0}}
-    whileInView={{opacity: 1}}
-    transition={{duration: 1}}
-    >
-      <motion.h4 
-      initial={{opacity: 0, y: -20}}
-      whileInView={{opacity: 1, y: 0}}
-      transition={{duration: 0.5, delay: 0.3}}
-      className='text-center mb-2 text-lg font-Ovo'>
-        Introduction</motion.h4>
+import { motion } from "motion/react";
+import { Award, GraduationCap, Languages, ShieldCheck } from "lucide-react";
 
-      <motion.h2 
-      initial={{opacity: 0, y: -20}}
-      whileInView={{opacity: 1, y: 0}}
-      transition={{duration: 0.5, delay: 0.5}}
-      className='text-center text-5xl font-Ovo'>
-        About me</motion.h2>
+const About = ({ basics, summary, education, certifications, languages, previousExperience }) => {
+    const featureCards = [
+        {
+            icon: ShieldCheck,
+            title: "Compliance and RCM depth",
+            description:
+                "Hands-on command of billing workflows, denial management, payer follow-up, and compliant healthcare operations.",
+        },
+        {
+            icon: Award,
+            title: "Recognized credentials",
+            description:
+                `${certifications[0].name} and Microsoft Fabric certification reinforce both domain and analytics expertise.`,
+        },
+        {
+            icon: GraduationCap,
+            title: "Technical foundation",
+            description:
+                `${education[0].degree} with practical delivery experience across SQL, Python, BI, and process improvement.`,
+        },
+    ];
 
-        <motion.div 
-        initial={{opacity: 0}}
-        whileInView={{opacity: 1}}
-        transition={{duration: 0.8}}
-        className='flex w-full flex-col lg:flex-row items-center gap-20 my-20'>
+    return (
+        <section id="about" className="section-shell scroll-mt-24 py-16 sm:py-24">
             <motion.div
-            initial={{opacity: 0, scale: 0.9}}
-            whileInView={{opacity: 1, scale: 1}}
-            transition={{duration: 0.6}}
-            className='w-64 sm:w-80 rounded-3xl max-w-none'>
-                <Image src={assets.user_image} alt='user' className='w-full rounded-3xl'/>
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6 }}
+                className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_1.1fr]"
+            >
+                <div className="section-card rounded-[2rem] p-6 sm:p-8 lg:p-10">
+                    <p className="section-eyebrow">Profile</p>
+                    <h2 className="section-title mt-3">Built for operational accountability and measurable improvement</h2>
+                    <div className="mt-6 space-y-4 text-base muted-copy">
+                        {summary.map((item) => (
+                            <p key={item}>{item}</p>
+                        ))}
+                    </div>
+
+                    <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                        <div className="rounded-3xl border border-white/10 bg-white/50 p-5 dark:bg-slate-900/50">
+                            <p className="text-sm font-medium uppercase tracking-[0.18em] text-teal-700 dark:text-teal-200">
+                                Base Location
+                            </p>
+                            <p className="mt-2 text-lg font-semibold">
+                                {basics.location.city}, {basics.location.country}
+                            </p>
+                        </div>
+                        <div className="rounded-3xl border border-white/10 bg-white/50 p-5 dark:bg-slate-900/50">
+                            <p className="text-sm font-medium uppercase tracking-[0.18em] text-teal-700 dark:text-teal-200">
+                                Languages
+                            </p>
+                            <p className="mt-2 text-lg font-semibold">{languages.join(" • ")}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="space-y-8">
+                    <div className="grid gap-4 sm:grid-cols-3">
+                        {featureCards.map(({ icon: Icon, title, description }) => (
+                            <div key={title} className="section-card rounded-[1.75rem] p-6">
+                                <Icon size={22} className="text-teal-700 dark:text-teal-300" />
+                                <h3 className="mt-4 text-lg font-semibold">{title}</h3>
+                                <p className="mt-2 text-sm muted-copy">{description}</p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="grid gap-4 lg:grid-cols-[1.15fr_0.85fr]">
+                        <div className="section-card rounded-[1.75rem] p-6">
+                            <div className="flex items-center gap-3">
+                                <Languages size={20} className="text-teal-700 dark:text-teal-300" />
+                                <h3 className="text-xl font-semibold">Earlier Experience</h3>
+                            </div>
+                            <div className="mt-5 space-y-4">
+                                {previousExperience.map((item) => (
+                                    <div key={`${item.company}-${item.role}`} className="rounded-2xl border border-white/10 bg-white/50 p-4 dark:bg-slate-900/50">
+                                        <p className="font-semibold">{item.role}</p>
+                                        <p className="text-sm muted-copy">{item.company}</p>
+                                        <p className="mt-1 text-sm muted-copy">
+                                            {item.location} • {item.duration}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="section-card rounded-[1.75rem] p-6">
+                            <h3 className="text-xl font-semibold">Education</h3>
+                            <div className="mt-5 space-y-5">
+                                {education.map((item) => (
+                                    <div key={`${item.institution}-${item.degree}`}>
+                                        <p className="font-semibold">{item.degree}</p>
+                                        <p className="text-sm muted-copy">{item.institution}</p>
+                                        <p className="text-sm muted-copy">
+                                            {item.location} • {item.startYear} - {item.endYear}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </motion.div>
-            <motion.div 
-            initial={{opacity: 0}}
-            whileInView={{opacity: 1}}
-            transition={{duration: 0.6, delay: 0.8}}
-            className='flex-1'>
-                <p className='mb-10 max-w-2xl font-Ovo'
-                >Strategic Healthcare Revenue Cycle (RCM) leader and data analytics specialist with 18+ years of experience, including 7+ years supporting US healthcare processes. Experienced in end-to-end RCM, medical billing (UB-04, CMS-1500), coding (CPT, ICD-10, HCPCS), denial management, and AR follow-up. Skilled in Power BI, Microsoft Fabric, SQL, and Python. Proven ability to reduce claim denials by 20% and improve operational efficiency by 25% through analytics and process improvements.</p>
-                <motion.ul
-                initial={{opacity: 0}}
-                whileInView={{opacity: 1}}
-                transition={{duration: 0.8, delay: 1}}
-                className='grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl'>
-                    {infoList.map(({icon, iconDark, title, description}, index)=>(
-                        <motion.li 
-                        whileHover={{scale: 1.05}}
-                        className='border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50'
-                         key={index}>
-                            <Image src={isDarkMode ? iconDark : icon} alt={title} className='w-7 mt-3'/>
-                            <h3 className='my-4 font-semibold text-gray-700 dark:text-white'>{title}</h3>
-                            <p className='text-gray-600 text-sm dark:text-white/80'>{description}</p>
-                        </motion.li>
-                    ))}
-                </motion.ul>
+        </section>
+    );
+};
 
-                <motion.h4
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ delay: 1.3, duration: 0.5 }}
-                className='my-6 text-gray-700 font-Ovo dark:text-white/80'>Tools I use</motion.h4>
-
-                <motion.ul
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 1.5, duration: 0.6 }}
-                className='flex items-center gap-3 sm:gap-5'>
-                    {toolsData.map((tool, index)=>(
-                        <motion.li 
-                        whileHover={{ scale: 1.1 }}
-                        className='flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500'
-                         key={index}>
-                            <Image src={tool} alt='Tool' className='w-5 sm:w-7'/>
-                        </motion.li>
-                    ))}
-                </motion.ul>
-            </motion.div>
-        </motion.div>
-    </motion.div>
-  )
-}
-
-export default About
+export default About;
